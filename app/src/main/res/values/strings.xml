@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Posts</string>
+
     <string name="menu">МЕНЮ</string>
     <string name="posts">Все записи</string>
     <string name="randomRecord">Случайная запись</string>
     <string name="newRecord">Новая запись</string>
     <string name="continue1">Продолжить</string>
+
     <string name="save">Сохранить</string>
+    <string name="read">Прочитать</string>
+
 </resources>

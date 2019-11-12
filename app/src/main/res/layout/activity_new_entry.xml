@@ -5,7 +5,7 @@
     >
 
     <Button
-        android:id="@+id/bottomSave"
+        android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
@@ -14,9 +14,20 @@
         android:layout_marginLeft="20dp"
         />
 
+    <Button
+        android:id="@+id/btnRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/buttonSave"
+        android:text="@string/read"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        />
+
     <EditText
-        android:layout_below="@id/bottomSave"
         android:id="@+id/editText1"
+        android:layout_below="@id/buttonSave"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
