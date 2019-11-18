@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+//import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class NewEntry extends AppCompatActivity implements View.OnClickListener{
 
-    Button btnAdd, btnRead; //вторая кнопка, в дальнейшем чтение базы будет выполнятся из другой активности
-    EditText etText;
+    Button btnAdd, btnRead, btnClear;
+    EditText etName, etText;
 
     DBHelper dbHelper;
 
@@ -29,6 +30,10 @@ public class NewEntry extends AppCompatActivity implements View.OnClickListener{
         btnRead = (Button) findViewById(R.id.btnRead);
         btnRead.setOnClickListener(this);
 
+        btnClear = (Button) findViewById(R.id.btnDell);
+        btnClear.setOnClickListener(this);
+
+        etName = (EditText) findViewById(R.id.editText2);
         etText = (EditText) findViewById(R.id.editText1);
 
         dbHelper = new DBHelper(this);
@@ -36,36 +41,47 @@ public class NewEntry extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+
+        String name = etName.getText().toString();
         String text = etText.getText().toString();
 
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
+
         switch (v.getId()) {
 
             case R.id.buttonSave:
+                contentValues.put(DBHelper.KEY_NAME, name);
                 contentValues.put(DBHelper.KEY_TEXT, text);
 
-                database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
+                database.insert(DBHelper.TABLE_TEXT, null, contentValues);
                 break;
 
             case R.id.btnRead:
-                Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null, null, null, null, null);
+                Cursor cursor = database.query(DBHelper.TABLE_TEXT, null, null, null, null, null, null);
 
                 if (cursor.moveToFirst()) {
                     int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_TEXT);
+                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
+                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_TEXT);
                     do {
                         Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
-                                ", name = " + cursor.getString(nameIndex));
+                                ", name = " + cursor.getString(nameIndex) +
+                                ", text = " + cursor.getString(emailIndex));
                     } while (cursor.moveToNext());
                 } else
                     Log.d("mLog","0 rows");
 
                 cursor.close();
                 break;
+
+            case R.id.btnDell:
+                database.delete(DBHelper.TABLE_TEXT, null, null);
+                break;
         }
         dbHelper.close();
     }
 }
+
