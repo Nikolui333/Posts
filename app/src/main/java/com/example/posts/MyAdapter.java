@@ -34,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                                                      int viewType) {
         // create a new view
         TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_new_entry, parent, false);
+                .inflate(R.layout.item_post, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v);
         return vh;

@@ -28,10 +28,12 @@ public class postsList extends Activity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        mDataBaseHelper = new DBHelper(this);
 
         if(this.mDataBaseHelper == null){
             this.mDataBaseHelper = new DBHelper(this);
-        }
+        } //???
+
 
         SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();
         String sql = "select name, text from text";
@@ -40,10 +42,9 @@ public class postsList extends Activity {
         if (c != null) {
             if (c.moveToFirst()) {
                 do {
-                    int idId= c.getColumnIndex("_id");
                     int idName= c.getColumnIndex("name");
                     int idText= c.getColumnIndex("text");
-                    myDataset.add(new TextRow(c.getInt(idId),c.getString(idName),c.getString(idText)));
+                    myDataset.add(new TextRow(c.getString(idName),c.getString(idText)));
                 } while (c.moveToNext());
             }
             c.close();
@@ -52,10 +53,5 @@ public class postsList extends Activity {
         mAdapter = new MyAdapter(myDataset);
         recyclerView.setAdapter(mAdapter);
 
-        if(this.mDataBaseHelper == null){
-            this.mDataBaseHelper = new DBHelper(this);
-        }
-        db = mDataBaseHelper.getWritableDatabase();
-        db.execSQL("insert into text (_id,name,text)values(1,'MyFirstName','MyFirstText')");
     }
 }
