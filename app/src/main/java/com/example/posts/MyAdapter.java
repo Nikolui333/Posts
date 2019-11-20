@@ -51,7 +51,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public int getItemCount() {
         return mDataset.size();
     }
-
-
-
 }

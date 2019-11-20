@@ -29,6 +29,10 @@ public class postsList extends Activity {
         recyclerView.setLayoutManager(layoutManager);
 
 
+        if(this.mDataBaseHelper == null){
+            this.mDataBaseHelper = new DBHelper(this);
+        }
+
         SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();
         String sql = "select name, text from text";
         Cursor c = db.rawQuery(sql, new String[]{});
