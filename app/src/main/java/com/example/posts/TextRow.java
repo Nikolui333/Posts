@@ -7,5 +7,4 @@ public class TextRow {
         this.name= name;
         this.text= text;
     }
-
 }

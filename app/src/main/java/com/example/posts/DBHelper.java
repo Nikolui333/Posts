@@ -6,9 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper  extends SQLiteOpenHelper{
 
-    public static final int DATABASE_VERSION = 5;
+    public static final int DATABASE_VERSION = 6;
     public static final String DATABASE_NAME = "contactDb";
-    public static final String TABLE_TEXT = "text";
+    public static final String TABLE_TEXT = "textTable";
 
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "name";
@@ -21,7 +21,7 @@ public class DBHelper  extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_TEXT + "(" + KEY_ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_NAME + " text," + KEY_TEXT + " text" + ")"); //???
+                + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," + KEY_NAME + " text," + KEY_TEXT + " text" + ")");
     }
 
     @Override
