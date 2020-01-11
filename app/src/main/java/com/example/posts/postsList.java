@@ -26,13 +26,6 @@ public class postsList extends AppCompatActivity implements Serializable {
     private RecyclerView.LayoutManager layoutManager;
     private DBHelper mDataBaseHelper;
 
-    EditText Name;
-    EditText Text;
-
-    Integer TempID;
-
-    RecyclerView btnSubmit;
-
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +59,12 @@ public class postsList extends AppCompatActivity implements Serializable {
             c.close();
         }
 
-        mAdapter = new MyAdapter(myDataset);
-        recyclerView.setAdapter(mAdapter);
+        try {
+            mAdapter = new MyAdapter(myDataset, this);
+            recyclerView.setAdapter(mAdapter);
+        }catch (Exception ex){
 
-    }
-
-
-    public void buttonText(View view) {
-        Intent intent = new Intent(this, UploadText.class);
-        startActivity(intent);
+        }
     }
 
 }
