@@ -1,6 +1,7 @@
 package com.example.posts;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -29,5 +30,19 @@ public class DBHelper  extends SQLiteOpenHelper{
         db.execSQL("drop table if exists " + TABLE_TEXT);
 
         onCreate(db);
+
     }
+
+/*    private SQLiteDatabase mDB;
+
+    public TextRow getEventById(String id) {
+        Cursor cursor = mDB.query(TABLE_TEXT, null, KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
+        TextRow event = null;
+        if (cursor.moveToFirst()) {
+            event = new TextRow(cursor.getString(cursor.getColumnIndex(KEY_NAME)),
+                    cursor.getString(cursor.getColumnIndex(KEY_TEXT)));
+        }
+        cursor.close();
+        return event;
+    }*/
 }

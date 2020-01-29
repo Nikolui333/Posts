@@ -18,7 +18,6 @@ public class UploadText extends AppCompatActivity {
         setContentView(R.layout.activity_upload_text);
 
         textView = (TextView) findViewById(R.id.name);
-
         textView2 = (TextView) findViewById(R.id.UpText);
 
         Intent intent = getIntent();

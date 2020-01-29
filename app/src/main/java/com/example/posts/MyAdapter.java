@@ -26,6 +26,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.parent = parent;
     }
 
+/*    public MyAdapter(){
+
+    }*/
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -69,15 +73,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(parent, UploadText.class);
                 intent.putExtra("name", mDataset.get(position).name);
                 intent.putExtra("text", mDataset.get(position).text);
                 parent.startActivity(intent);
             }
         });
-
     }
+
+/*    public void randomnicity(int position){
+        Intent intent = new Intent(new MainActivity(), UploadText.class);
+        intent.putExtra("name", mDataset.get(position).name);
+        intent.putExtra("text", mDataset.get(position).text);
+        new MainActivity().startActivity(intent);
+    }*/
 
     @Override
     public int getItemCount() {

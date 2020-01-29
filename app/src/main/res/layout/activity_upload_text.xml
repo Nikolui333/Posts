@@ -11,6 +11,8 @@
     android:textSize="45sp"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="30dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
     />
 
     <TextView
@@ -19,8 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         tools:ignore="MissingConstraints"
-        android:textSize="45sp"
+        android:textSize="30sp"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         />
 
 </RelativeLayout>

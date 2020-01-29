@@ -9,5 +9,6 @@
 
     <string name="save">Сохранить</string>
     <string name="read">Прочитать</string>
+    <string name="remove">Удалить всё</string>
 
 </resources>

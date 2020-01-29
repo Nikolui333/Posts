@@ -43,7 +43,6 @@ public class postsList extends AppCompatActivity implements Serializable {
             this.mDataBaseHelper = new DBHelper(this);
         }
 
-
         SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();//чтение базы данных
         String sql = "select name, text from textTable";//получение доступа к данным в таблице
         Cursor c = db.rawQuery(sql, new String[]{});//извлечение данных из таблицы
@@ -66,5 +65,4 @@ public class postsList extends AppCompatActivity implements Serializable {
 
         }
     }
-
 }

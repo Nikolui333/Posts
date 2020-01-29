@@ -27,9 +27,6 @@ public class NewEntry extends AppCompatActivity implements View.OnClickListener{
         btnAdd = (Button) findViewById(R.id.buttonSave);
         btnAdd.setOnClickListener(this);
 
-        btnRead = (Button) findViewById(R.id.btnRead);
-        btnRead.setOnClickListener(this);
-
         btnClear = (Button) findViewById(R.id.btnDell);
         btnClear.setOnClickListener(this);
 
@@ -57,24 +54,6 @@ public class NewEntry extends AppCompatActivity implements View.OnClickListener{
                 contentValues.put(DBHelper.KEY_TEXT, text);
 
                 database.insert(DBHelper.TABLE_TEXT, null, contentValues);
-                break;
-
-            case R.id.btnRead:
-                Cursor cursor = database.query(DBHelper.TABLE_TEXT, null, null, null, null, null, null);
-
-                if (cursor.moveToFirst()) {
-                    int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
-                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
-                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_TEXT);
-                    do {
-                        Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
-                                ", name = " + cursor.getString(nameIndex) +
-                                ", text = " + cursor.getString(emailIndex));
-                    } while (cursor.moveToNext());
-                } else
-                    Log.d("mLog","0 rows");
-
-                cursor.close();
                 break;
 
             case R.id.btnDell:

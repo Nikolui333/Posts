@@ -17,21 +17,10 @@
         />
 
     <Button
-        android:id="@+id/btnRead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:layout_toRightOf="@id/buttonSave"
-        android:text="@string/read"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        />
-    <Button
         android:id="@+id/btnDell"
         android:layout_width="wrap_content"
-        android:layout_below="@id/btnRead"
-        android:text="удалить"
+        android:layout_toRightOf="@id/buttonSave"
+        android:text="@string/remove"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
