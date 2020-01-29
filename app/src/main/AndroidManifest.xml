@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RandomRecord"></activity>
         <activity android:name=".UploadText" />
         <activity android:name=".postsList" />
         <activity android:name=".NewEntry" />

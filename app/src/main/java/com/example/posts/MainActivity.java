@@ -37,19 +37,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonRandomnicity(View view){
 
-        try {
+       // try {
             DBHelper mDataBaseHelper = new DBHelper(this);
             SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();//чтение базы данных
             long rowCount  = DatabaseUtils.queryNumEntries(db, "textTable"); // получаем колличество строк в базе данных
-            int rannd = (int) ((int) rowCount * Math.random()); // получаем случайное число, которое меньше либо равно колличеству строк в базе данных
+            rowCount++;
+            int rand = (int) ((int) rowCount * Math.random()); // получаем случайное число, которое меньше либо равно колличеству строк в базе данных
+
+            if (rand<1){ // для того, чтобы программа не обращалась к не существующей строке
+                rand++;
+            }
 
             Cursor cursor = db.query("textTable", // полйчаем нужные данные из базы данных
                     new String[] {"name", "text"},
                     "_id = ?",
-                    new String[] {Integer.toString(rannd)},
+                    new String[] {Integer.toString(rand)},
                     null, null, null);
 
-            Intent intent = new Intent(this, UploadText.class);
+            Intent intent = new Intent(this, RandomRecord.class);
 
             if(cursor.moveToFirst()){
                 String name = cursor.getString(0);
@@ -62,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
             db.close();
 
-        }
-            catch(Exception e) {
+      //  }
+         //   catch(Exception e) {
 
-            }
+           // }
     }
 
 }

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper  extends SQLiteOpenHelper{
 
-    public static final int DATABASE_VERSION = 6;
+    public static final int DATABASE_VERSION = 7;
     public static final String DATABASE_NAME = "contactDb";
     public static final String TABLE_TEXT = "textTable";
 
@@ -33,16 +33,7 @@ public class DBHelper  extends SQLiteOpenHelper{
 
     }
 
-/*    private SQLiteDatabase mDB;
 
-    public TextRow getEventById(String id) {
-        Cursor cursor = mDB.query(TABLE_TEXT, null, KEY_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
-        TextRow event = null;
-        if (cursor.moveToFirst()) {
-            event = new TextRow(cursor.getString(cursor.getColumnIndex(KEY_NAME)),
-                    cursor.getString(cursor.getColumnIndex(KEY_TEXT)));
-        }
-        cursor.close();
-        return event;
-    }*/
+
+
 }
