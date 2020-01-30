@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(WHITE)); // цвет верхней панели
-
-        /*ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(BLACK));*/
     }
 
     public void buttonNew(View view) {
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonRandomnicity(View view){
 
-        try {
+        //try {
             DBHelper mDataBaseHelper = new DBHelper(this);
             SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();//чтение базы данных
             long rowCount  = DatabaseUtils.queryNumEntries(db, "textTable"); // получаем колличество строк в базе данных
@@ -77,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
             db.close();
 
-        }
+      /*  }
             catch(Exception e) {
 
-            }
+            }*/
     }
 
 }
