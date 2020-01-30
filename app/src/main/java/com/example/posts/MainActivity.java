@@ -1,11 +1,14 @@
 package com.example.posts;
 
+import android.app.ActionBar;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +18,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static android.graphics.Color.BLACK;
+import static android.graphics.Color.WHITE;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -23,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(WHITE)); // цвет верхней панели
+
+        /*ActionBar bar = getActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(BLACK));*/
     }
 
     public void buttonNew(View view) {
@@ -37,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonRandomnicity(View view){
 
-       // try {
+        try {
             DBHelper mDataBaseHelper = new DBHelper(this);
             SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();//чтение базы данных
             long rowCount  = DatabaseUtils.queryNumEntries(db, "textTable"); // получаем колличество строк в базе данных
@@ -54,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     new String[] {Integer.toString(rand)},
                     null, null, null);
 
-            Intent intent = new Intent(this, RandomRecord.class);
+            Intent intent = new Intent(this, UploadText.class);
 
             if(cursor.moveToFirst()){
                 String name = cursor.getString(0);
@@ -67,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
             db.close();
 
-      //  }
-         //   catch(Exception e) {
+        }
+            catch(Exception e) {
 
-           // }
+            }
     }
 
 }

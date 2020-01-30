@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Posts</string>
+    <string name="app_name">Записи</string>
 
     <string name="menu">МЕНЮ</string>
     <string name="posts">Все записи</string>

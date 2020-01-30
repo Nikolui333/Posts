@@ -2,7 +2,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     >
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/line" />
 
     <TextView
         android:id="@+id/text"
@@ -12,6 +20,7 @@
         android:textSize="38sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+        android:textColor="@android:color/white"
         />
 
     <Button
@@ -25,7 +34,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:onClick="buttonNew" />
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:onClick="buttonNew"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg_stroke"
+        />
 
     <Button
         android:id="@+id/button2"
@@ -38,7 +52,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:onClick="buttonList"/>
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:onClick="buttonList"
+        android:background="@drawable/button_bg_stroke"
+        android:textColor="@android:color/white"/>
 
     <Button
         android:id="@+id/button3"
@@ -51,18 +69,10 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:onClick="buttonRandomnicity"/>
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/continue1"
-        android:layout_below="@id/button3"
-        android:textSize="38sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:onClick="buttonRandomnicity"
+        android:background="@drawable/button_bg_stroke"
+        android:textColor="@android:color/white"/>
 
 </RelativeLayout>
