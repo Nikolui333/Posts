@@ -8,22 +8,25 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:ignore="MissingConstraints"
-    android:textSize="45sp"
+    android:textSize="30sp"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="30dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:textColor="@android:color/black"
     />
+
     <TextView
         android:id="@+id/UpText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/name"
         tools:ignore="MissingConstraints"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:scrollbars = "vertical"
+        android:textSize="20sp"
         android:textColor="@android:color/black"
-    />
+        />
 
 </RelativeLayout>
+

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class UploadText extends AppCompatActivity {
@@ -31,7 +33,6 @@ public class UploadText extends AppCompatActivity {
         textView.setText(name);
         textView2.setText(text);
 
-        textView2.setSelected(true);
-
+        textView2.setMovementMethod(new ScrollingMovementMethod());
     }
 }
