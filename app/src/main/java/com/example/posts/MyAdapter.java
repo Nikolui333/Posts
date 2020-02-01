@@ -2,15 +2,10 @@ package com.example.posts;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -26,10 +21,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             this.parent = parent;
     }
 
-/*    public MyAdapter(){
-
-    }*/
-
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -37,11 +28,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         // each data item is just a string in this case
         public TextView textView;
-
-        //добавленный код
-       // TextView listItemNumberView;
-
-
 
         public MyViewHolder(TextView v) {
             super(v);
@@ -68,7 +54,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.textView.setText(mDataset.get(position).name);
-        // возможно при помощи подобной строки можно передать данные в другую активность через intent
 
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,13 +65,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             }
         });
     }
-
-/*    public void randomnicity(int position){
-        Intent intent = new Intent(new MainActivity(), UploadText.class);
-        intent.putExtra("name", mDataset.get(position).name);
-        intent.putExtra("text", mDataset.get(position).text);
-        new MainActivity().startActivity(intent);
-    }*/
 
     @Override
     public int getItemCount() {

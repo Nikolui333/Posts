@@ -1,25 +1,13 @@
 package com.example.posts;
 
-import android.app.ActionBar;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import static android.graphics.Color.BLACK;
-import static android.graphics.Color.WHITE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonRandomnicity(View view){
 
-        //try {
+        try {
             DBHelper mDataBaseHelper = new DBHelper(this);
             SQLiteDatabase db = mDataBaseHelper.getReadableDatabase();//чтение базы данных
             long rowCount  = DatabaseUtils.queryNumEntries(db, "textTable"); // получаем колличество строк в базе данных
@@ -72,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
             }
             cursor.close();
             db.close();
-
-      /*  }
+        }
             catch(Exception e) {
 
-            }*/
+            }
     }
 
 }
