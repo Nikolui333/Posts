@@ -1,4 +1,9 @@
 # Posts
+
+
+https://user-images.githubusercontent.com/56168199/128397330-131db607-fd1e-4462-9eab-2bde786242fc.mp4
+
+
 Application for creating and reading records in random or random order
 
 
